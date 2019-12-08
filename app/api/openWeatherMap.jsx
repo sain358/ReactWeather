@@ -14,7 +14,7 @@ export default function getTemperatureByLocation (location) {
             if (result.data.list && result.data.list.length > 0) {
                 return result.data.list[0].main.temp;
             } else {
-                throw new Error("Error: Invalid location")
+                throw new Error("Invalid location")
             }
         },
         (error) => {

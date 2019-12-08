@@ -2,20 +2,25 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter as Router, Route} from 'react-router-dom'; // use HashRouter if hashHistory needed, otherwise BrowserRouter
-import Main from 'Main';
-import Weather from "./components/Weather";
-import About from "./components/About";
-import Examples from "./components/Examples";
+import {HashRouter as Router, Route} from 'react-router-dom';
+import Nav from 'Nav';
+import WeatherPage from "./components/WeatherPage";
+import AboutPage from "./components/AboutPage";
+import ExamplesPage from "./components/ExamplesPage";
 
 ReactDOM.render(
-    <Router>
-        <div className="container">
-            <Main/>
-            <Route exact path="/" component={Weather}/>
-            <Route path="/about" component={About}/>
-            <Route path="/examples" component={Examples}/>
-        </div>
-    </Router>,
+    <div className="container">
+        <Router>
+            <Nav/>
+            <div className="row justify-content-center">
+                <div className="mt-4 col-md-8">
+                    <Route exact path="/" component={WeatherPage}/>
+                    <Route path="/about" component={AboutPage}/>
+                    <Route path="/examples" component={ExamplesPage}/>
+                </div>
+            </div>
+        </Router>
+    </div>
+    ,
     document.getElementById('app')
 );

@@ -3,10 +3,17 @@ import React from 'react';
 export default class WeatherForm extends React.Component {
     render() {
         return (
-            <div>
+            <div className="form-group">
                 <form onSubmit={this.onFormSubmit}>
-                    <input type="text" ref="location"/>
-                    <button>Get Weather</button>
+                    <input
+                        className="form-control"
+                        type="text"
+                        ref="location"
+                        required="required"
+                        pattern="[a-zA-Z]{3,}"
+                        title="At least three letters required"
+                    />
+                    <button className="mt-2 btn btn-primary btn-block">Get Weather</button>
                 </form>
             </div>
         )
